@@ -1,15 +1,16 @@
 {
   "name": "ng-pwa-app",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "start:pwa": "npm run build && cd dist && http-server",
-    "build": "ng build --prod && npm run ngu-sw-manifest",
+    "build": "ng build --prod && npm run ngu-app-shell && npm run ngu-sw-manifest",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "ngu-app-shell": "./node_modules/.bin/ngu-app-shell --module src/app/app.module.ts --out dist/index.html",
     "ngu-sw-manifest": "./node_modules/.bin/ngu-sw-manifest --module src/app/app.module.ts --out dist/ngsw-manifest.json"
   },
   "private": true,

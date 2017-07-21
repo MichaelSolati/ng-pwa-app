@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 
 import { SharedModule } from '../shared/shared.module';
-import { HomeRoutingModule } from './home-routing.module';
+import { routing } from './home-routing.module';
 
 import { HomeComponent } from './home.component';
 
@@ -12,7 +12,7 @@ import { HomeComponent } from './home.component';
     CommonModule,
     MaterialModule,
     SharedModule,
-    HomeRoutingModule
+    routing
   ],
   declarations: [
     HomeComponent
