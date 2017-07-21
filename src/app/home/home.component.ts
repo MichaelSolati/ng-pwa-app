@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { PWAService } from '../shared/services/pwa.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'pwa-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']

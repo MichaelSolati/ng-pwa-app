@@ -1,0 +1,20 @@
+{
+  "dynamic": {
+    "group": [
+      {
+        "name": "firebase",
+        "urls": {
+          "https://ng-pwa-app.firebaseapp.com/": {
+            "match": "prefix"
+          }
+        },
+        "cache": {
+          "optimizeFor": "performance",
+          "maxAgeMs": 3600000,
+          "maxEntries": 30,
+          "strategy": "lru"
+        }
+      }
+    ]
+  }
+}

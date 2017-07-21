@@ -6,6 +6,7 @@ import { MdSnackBar } from '@angular/material';
 import { SubmitService } from '../../shared/services/submit.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'pwa-submit',
   templateUrl: './submit.component.html',
   styleUrls: ['./submit.component.scss']

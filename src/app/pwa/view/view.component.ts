@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { PWAService } from '../../shared/services/pwa.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'pwa-view',
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.scss']

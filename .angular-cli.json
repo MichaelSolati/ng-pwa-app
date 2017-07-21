@@ -19,6 +19,7 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "pwa",
+      "serviceWorker": true,
       "styles": [
         "../node_modules/mdi/css/materialdesignicons.min.css",
         "styles/bootstrap.scss",
@@ -58,6 +59,7 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {}
+    "component": {
+    }
   }
 }

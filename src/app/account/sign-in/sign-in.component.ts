@@ -5,6 +5,7 @@ import { MdSnackBar } from '@angular/material';
 import { UserService } from '../../shared/services/user.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'pwa-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']

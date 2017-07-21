@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { UserService } from '../../shared/services/user.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'pwa-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']

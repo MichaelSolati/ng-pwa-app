@@ -7,6 +7,7 @@ declare var window: any;
 import { UserService } from '../services/user.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'pwa-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
