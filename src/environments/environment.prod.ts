@@ -8,5 +8,6 @@ export const environment = {
     projectId: 'ng-pwa-app',
     storageBucket: 'ng-pwa-app.appspot.com',
     messagingSenderId: '1034145920400'
-  }
+  },
+  applicationServerKey: null
 };

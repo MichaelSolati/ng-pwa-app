@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
+import { NgServiceWorker, ServiceWorkerModule } from '@angular/service-worker';
 import * as firebase from 'firebase';
 
 import { environment } from '../environments/environment';
@@ -22,9 +23,25 @@ firebase.initializeApp(environment.firebase);
     BrowserAnimationsModule,
     MaterialModule,
     SharedModule,
-    routing
+    routing,
+    ServiceWorkerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private _sw: NgServiceWorker) {
+    if (environment.applicationServerKey) {
+      this._sw.registerForPush({
+        applicationServerKey: environment.applicationServerKey
+      }).subscribe((sub: any) => {
+        // Use details to register on your server to send notifications to this device
+        console.log(sub);
+      });
+      this._sw.push.subscribe((msg: any) => {
+        // Handle message when in app
+        console.log(msg);
+      });
+    }
+  }
+}
