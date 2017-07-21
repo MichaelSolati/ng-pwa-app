@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+
+@mixin bp-min-height {
+  min-height: calc(100vh - 64px);
+  @media (max-width: 600px) and (orientation: portrait) {
+    min-height: calc(100vh - 56px);
+  }
+}
+
+@mixin bp-height {
+  min-height: calc(100vh - 64px);
+  height: calc(100vh - 64px);
+  max-height: calc(100vh - 64px);
+  @media (max-width: 600px) and (orientation: portrait) {
+    min-height: calc(100vh - 56px);
+    height: calc(100vh - 56px);
+    max-height: calc(100vh - 56px);
+  }
+}
+
+a,
+button,
+input[type=submit] {
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+header {
+  padding: 15vw 0;
+  color: white;
+  text-align: center;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.full-window {
+  @include bp-height;
+  width: 100%;
+}
+
+.navbar-spacer {
+  flex: 1 1 auto;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  border: solid white 2px;
+}
+
+@media (max-width: 600px) {
+  .show-small {
+    display: block !important;
+  }
+  .hide-small {
+    display: none !important;
+  }
+}
+
+@media (min-width: 601px) {
+  .show-small {
+    display: none !important;
+  }
+  .hide-small {
+    display: block !important;
+  }
+}
+

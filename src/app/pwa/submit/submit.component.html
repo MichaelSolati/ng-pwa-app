@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <md-card *ngIf="!app" class="text-left">
+        <md-card-header>
+          <md-card-title>
+            <h2>Submit a PWA</h2>
+          </md-card-title>
+        </md-card-header>
+        <md-card-content>
+          <form class="row" [formGroup]="formPWA" (ngSubmit)="getApp()">
+            <md-input-container class="col-12">
+              <input mdInput placeholder="PWA URL" formControlName="url" type="text" name="url" required>
+            </md-input-container>
+          </form>
+        </md-card-content>
+        <md-card-actions>
+          <button md-button (click)="getApp()" color="accent" [disabled]="disabled">NEXT</button>
+        </md-card-actions>
+      </md-card>
+
+      <md-card *ngIf="app" class="text-left">
+        <md-card-header>
+          <md-card-title>
+            <h2>Does this look right?</h2>
+          </md-card-title>
+        </md-card-header>
+        <img md-card-image [src]="getImageURL(app)" [alt]="app?.name+' Logo'">
+        <md-card-content>
+          <div class="row">
+            <md-input-container class="col-12">
+              <input mdInput placeholder="App Name" disabled [value]="app?.name">
+            </md-input-container>
+
+            <md-input-container class="col-12">
+              <input mdInput placeholder="Description" disabled [value]="app?.meta?.description || 'No Description Provided'">
+            </md-input-container>
+
+            <md-input-container class="col-12">
+              <input mdInput placeholder="Website" disabled [value]="app?.url">
+            </md-input-container>
+          </div>
+        </md-card-content>
+        <md-card-actions>
+          <button md-button (click)="submit()" color="accent" [disabled]="disabled">SUBMIT</button>
+          <button md-button (click)="clearApp()" [disabled]="disabled">BACK</button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+</div>

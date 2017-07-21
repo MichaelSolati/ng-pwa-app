@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let app of apps | async" class="col-12 col-md-6 col-lg-4">
+      <md-card>
+        <md-card-header>
+          <md-card-title>
+            <h2>{{app.name}}</h2>
+          </md-card-title>
+        </md-card-header>
+        <img md-card-image [src]="getImageURL(app)" [alt]="app.name+' Logo'">
+        <md-card-content>
+          <p *ngIf="summary">{{app.meta?.description}}</p>
+        </md-card-content>
+        <md-card-actions>
+          <a md-button [href]="app.url" target="_blank" rel="noopener" color="accent">VIEW PWA</a>
+          <a md-button [routerLink]="['/', 'pwa', app.id]">VIEW DETAILS</a>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+</div>

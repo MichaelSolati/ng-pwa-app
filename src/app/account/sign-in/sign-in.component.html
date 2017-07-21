@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <md-card>
+        <md-card-header>
+          <md-card-title>
+            <h2>Sign In</h2>
+          </md-card-title>
+        </md-card-header>
+        <md-card-content>
+          <div class="row">
+            <div class="col-4" (click)="signIn('facebook')">
+              <md-icon class="mdi mdi-facebook"></md-icon>
+              <h3>Facebook</h3>
+            </div>
+            <div class="col-4" (click)="signIn('google')">
+              <md-icon class="mdi mdi-google-plus"></md-icon>
+              <h3>Google</h3>
+            </div>
+            <div class="col-4" (click)="signIn('twitter')">
+              <md-icon class="mdi mdi-twitter"></md-icon>
+              <h3>Twitter</h3>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>

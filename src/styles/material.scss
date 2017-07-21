@@ -1,0 +1,53 @@
+@import '~@angular/material/theming';
+@include mat-core();
+$primary: mat-palette($mat-red, 500, 100, 700);
+$accent: mat-palette($mat-deep-purple, A200, A100, A400);
+$warn: mat-palette($mat-red);
+$theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+$primary: #212121;
+$secondary: #757575;
+$background: #F5F5F5;
+body {
+  font-family: 'Roboto', sans-serif;
+  background: $background;
+  color: $primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+p {
+  color: $primary !important;
+  margin: 0px;
+}
+
+md-card {
+  margin-bottom: 1.5rem !important;
+}
+
+md-sidenav-container {
+  md-sidenav {
+    width: 200px;
+  }
+}
+
+.mat-grid-tile .mat-figure {
+  display: block !important;
+}
+
+.primary {
+  color: $primary;
+}
+
+.secondary {
+  color: $secondary;
+}
+
+.white {
+  color: white;
+}

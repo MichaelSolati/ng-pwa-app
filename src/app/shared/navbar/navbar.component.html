@@ -1,0 +1,34 @@
+<md-sidenav-container>
+  <md-sidenav #sidenav>
+    <md-nav-list>
+      <a md-list-item *ngIf="(user | async)" class="side-nav" [routerLink]="['/', 'account']" (click)="navClose()">My Account</a>
+      <a md-list-item class="side-nav" [routerLink]="['/', 'pwa', 'submit']" (click)="navClose()">Submit A PWA</a>
+      <a md-list-item *ngIf="!(user | async)" class="side-nav" [routerLink]="['/', 'account', 'sign-in']" (click)="navClose()">Sign In</a>
+      <a md-list-item *ngIf="(user | async)" class="side-nav" (click)="signOut()">Sign Out</a>
+    </md-nav-list>
+  </md-sidenav>
+  <md-toolbar color="primary" class="sticky-header">
+    <button md-button class="show-small" (click)="navToggle()"><md-icon>menu</md-icon></button>
+    <a [routerLink]="['/']"><img src="assets/images/pwa-white.svg" class="align-middle navbar-photo" alt="PWA Logo in White"></a>
+    <span class="navbar-spacer hide-small"></span>
+    <a class="hide-small top-nav" [routerLink]="['/', 'pwa', 'submit']">Submit A PWA</a>
+    <span *ngIf="(user | async)" class="hide-small top-nav" [mdMenuTriggerFor]="menu">
+      <img [src]="(user | async)?.photoURL" [alt]="(user | async)?.displayName" class="align-middle navbar-photo profile-pic">
+    </span>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item [routerLink]="['/', 'account']">
+        <md-icon>account_circle</md-icon>
+        <span>{{(user | async)?.displayName}}</span>
+      </button>
+      <button md-menu-item (click)="signOut()">
+        <md-icon>exit_to_app</md-icon>
+        <span>Sign Out</span>
+      </button>
+    </md-menu>
+    <a *ngIf="!(user | async)" class="hide-small top-nav" [routerLink]="['/', 'account', 'sign-in']">Sign In</a>
+  </md-toolbar>
+  <div id="content-section" class="full-window">
+    <div class="navbar-spacing"></div>
+    <ng-content></ng-content>
+  </div>
+</md-sidenav-container>

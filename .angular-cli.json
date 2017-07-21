@@ -9,7 +9,8 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "hammer.min.js.map"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,9 +20,14 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "pwa",
       "styles": [
+        "../node_modules/mdi/css/materialdesignicons.min.css",
+        "styles/bootstrap.scss",
+        "styles/material.scss",
         "styles.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/hammerjs/hammer.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

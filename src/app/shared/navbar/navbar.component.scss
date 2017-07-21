@@ -1,0 +1,29 @@
+a.top-nav {
+  color: white;
+  font-size: 15px;
+  margin: 0 15px;
+}
+
+button.show-small.mat-button {
+  padding: 0px;
+  width: 36px;
+  min-width: 36px;
+  margin-right: 16px;
+}
+
+.navbar-photo {
+  height: 40px;
+  max-height: 100%;
+}
+
+.navbar-spacing {
+  height: 1.5rem !important;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100% !important;
+}

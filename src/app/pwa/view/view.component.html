@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <md-card class="text-left">
+        <md-card-header>
+          <md-card-title>
+            <h2>{{app?.name}}</h2>
+          </md-card-title>
+        </md-card-header>
+        <img md-card-image [src]="getImageURL(app)" [alt]="app?.name+' Logo'">
+        <md-card-content>
+          <p>{{app?.meta?.description}}</p>
+        </md-card-content>
+        <md-card-actions>
+          <a md-button [href]="app?.url" target="_blank" rel="noopener" color="accent">VIEW PWA</a>
+          <a md-button [routerLink]="['/']">GO HOME</a>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+</div>

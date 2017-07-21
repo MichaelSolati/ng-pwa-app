@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <md-card>
+        <md-card-header>
+          <md-card-title>
+            <h2>{{(user | async)?.displayName}}</h2>
+          </md-card-title>
+        </md-card-header>
+        <img md-card-image [src]="(user | async)?.photoURL" [alt]="(user | async)?.displayName">
+        <md-card-content class="text-left">
+          <p>{{(user | async)?.email}}</p>
+          <div *ngFor="let provider of (user | async)?.providerData">
+            <p>{{provider.providerId}}</p>
+            <p>{{provider.uid}}</p>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>
