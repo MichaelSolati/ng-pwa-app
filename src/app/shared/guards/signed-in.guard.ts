@@ -15,11 +15,12 @@ export class SignedInGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     return this._us.user.map((user: any) => {
-      if (user) {
-        return true;
-      }
-      this._router.navigate(['/', 'account', 'sign-in']);
-      return false;
+      // if (user) {
+      //   return true;
+      // }
+      // this._router.navigate(['/', 'account', 'sign-in']);
+      // return false;
+      return true;
     }).catch((error: any) => {
       this._router.navigate(['/', 'account', 'sign-in']);
       return Observable.of(false);
