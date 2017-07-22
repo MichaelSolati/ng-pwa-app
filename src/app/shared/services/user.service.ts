@@ -1,11 +1,11 @@
 import { Injectable, NgZone } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase';
 
 @Injectable()
 export class UserService {
-  private _user: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  private _user: ReplaySubject<any> = new ReplaySubject<any>(null);
 
   constructor(private _zone: NgZone) {
     this._watchAuthState();
