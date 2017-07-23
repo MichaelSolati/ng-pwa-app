@@ -3,10 +3,21 @@ const express = require('express');
 const request = require('request');
 const cors = require('cors');
 const normalizeUrl = require('normalize-url');
-const { JSDOM } = require('jsdom');
+const JSDOM = require('jsdom').JSDOM;
+const validUrl = require('valid-url');
 
 const app = express();
 app.use(cors());
+
+function appIcon(url, manifest) {
+  const src = manifest.icons[manifest.icons.length - 1].src;
+  if (validUrl.isUri(src)) return src;
+  return (url + '/' + src.replace(/^\//, '').replace(/^.\//, ''));
+}
+
+function id(url) {
+  return url.replace(/(^\w+:|^)\/\//, '').replace(/\.|\#|\$|\[|\]|\//g, '---');
+}
 
 function manifestURL(base, manifest) {
   manifest = manifest.replace(/^\//, '');
@@ -18,14 +29,6 @@ function manifestURL(base, manifest) {
     manifestURL = (baseArray.join('/') + '/' + manifestArray.join('/'));
   }
   return manifestURL;
-}
-
-function appIcon(url, manifest) {
-  return (url + '/' + manifest.icons[manifest.icons.length - 1].src.replace(/^\//, '').replace(/^.\//, ''));
-}
-
-function id(url) {
-  return url.replace(/(^\w+:|^)\/\//, '').replace(/\.|\#|\$|\[|\]|\//g, '---');
 }
 
 // Create and Deploy Your First Cloud Functions

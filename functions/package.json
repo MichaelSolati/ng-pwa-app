@@ -9,6 +9,7 @@
     "jsdom": "^11.1.0",
     "normalize-url": "^1.9.1",
     "request": "^2.81.0",
+    "valid-url": "^1.0.9",
     "webidl-conversions": "^4.0.1"
   },
   "private": true
