@@ -11,7 +11,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ngu-app-shell": "./node_modules/.bin/ngu-app-shell --module src/app/app.module.ts --out dist/index.html",
-    "ngu-sw-manifest": "./node_modules/.bin/ngu-sw-manifest --module src/app/app.module.ts --out dist/ngsw-manifest.json"
+    "ngu-sw-manifest": "./node_modules/.bin/ngu-sw-manifest --module src/app/app.module.ts --out dist/ngsw-manifest.json",
+    "firebase:deploy": "npm run build && firebase deploy",
+    "firebase:functions": "firebase serve --only functions",
+    "firebase:functions:develop": "nodemon -x \"npm run firebase:functions\" -w ./functions"
   },
   "private": true,
   "dependencies": {
@@ -52,9 +55,10 @@
     "karma": "~1.7.0",
     "karma-chrome-launcher": "~2.1.1",
     "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "nodemon": "^1.11.0",
     "protractor": "~5.1.2",
     "ts-node": "~3.0.4",
     "tslint": "~5.3.2",
