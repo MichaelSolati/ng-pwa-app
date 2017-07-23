@@ -12,12 +12,12 @@ function manifestURL(base, manifest) {
   manifest = manifest.replace(/^\//, '');
   let baseArray = base.split('/');
   let manifestArray = manifest.split('/');
+  let manifestURL = (base + '/' + manifest);
   if (baseArray[baseArray.length - 1] === manifestArray[0]) {
     baseArray.pop();
-    return (baseArray.join('/') + '/' + manifestArray.join('/'));
-  } else {
-    return (base + '/' + manifest);
+    manifestURL = (baseArray.join('/') + '/' + manifestArray.join('/'));
   }
+  return manifestURL;
 }
 
 function appIcon(url, manifest) {
@@ -31,7 +31,7 @@ function id(url) {
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 app.post('/manifest', (req, res) => {
-  const url = normalizeUrl(req.body.url || '').replace(/^http:\/\//i, 'https://');
+  const url = normalizeUrl((req.body.url || ''), { stripWWW: false }).replace(/^http:\/\//i, 'https://');
   request({
     url,
   }, (error, response, body) => {
@@ -42,7 +42,8 @@ app.post('/manifest', (req, res) => {
         const dom = new JSDOM(body);
         const meta = {
           title: (dom.window.document.querySelector('title')) ? dom.window.document.querySelector('title').textContent : null,
-          description: (dom.window.document.querySelector('meta[name=description]')) ? dom.window.document.querySelector('meta[name=description]').content : null
+          description: (dom.window.document.querySelector('meta[name=description]')) ? dom.window.document.querySelector('meta[name=description]').content : null,
+          author: (dom.window.document.querySelector('meta[name=author]')) ? dom.window.document.querySelector('meta[name=author]').content : null
         }
         const manifestHref = (dom.window.document.querySelector('link[rel=manifest]')) ? dom.window.document.querySelector('link[rel=manifest]').href : null;
         if (manifestHref) {
