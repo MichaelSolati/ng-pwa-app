@@ -18,8 +18,4 @@ export class HomeComponent implements OnInit {
   get apps(): Observable<any> {
     return this._ps.apps;
   }
-
-  public getImageURL(app: any): string {
-    return (app.url + '/' + app.icons[app.icons.length - 1].src);
-  }
 }

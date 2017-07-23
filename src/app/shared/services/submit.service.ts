@@ -14,15 +14,10 @@ export class SubmitService {
   constructor(private _http: Http) { }
 
   public create(pwa: any, callback?: any): void {
-    let id: string = pwa.url
-      .replace(/(^\w+:|^)\/\//, '')
-      .replace(/\/$/, '')
-      .replace(/\.|\#|\$|\[|\]|\//g, '---');
     firebase.database()
-      .ref('apps/' + id)
+      .ref('apps/' + pwa.id)
       .set(pwa)
       .then((success: any) => {
-        pwa['id'] = id;
         (callback) ? callback(null, pwa) : null;
       })
       .catch((error: any) => {

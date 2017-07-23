@@ -67,11 +67,7 @@ export class SubmitComponent implements OnInit {
       this._snackBar.open('We couldn\'t find a manifest... (Did you forget the \'https://\'?)', null, { duration: 3000 });
     }
   }
-
-  public getImageURL(app: any): string {
-    return (app.url + '/' + app.icons[app.icons.length - 1].src);
-  }
-
+  
   public submit(): void {
     this._formDisable();
     this._ss.create(this._app, (error: any, success: any) => {

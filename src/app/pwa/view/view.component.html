@@ -7,7 +7,7 @@
             <h2>{{app?.name}}</h2>
           </md-card-title>
         </md-card-header>
-        <img md-card-image [src]="getImageURL(app)" [alt]="app?.name+' Logo'">
+        <img md-card-image [src]="app?.icon" [alt]="app?.name+' Logo'">
         <md-card-content>
           <p>{{app?.meta?.description}}</p>
         </md-card-content>

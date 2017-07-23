@@ -31,10 +31,4 @@ export class ViewComponent implements OnInit, OnDestroy {
   get app(): any {
     return this._app;
   }
-
-  public getImageURL(app: any): string {
-    if (app) {
-      return (app.url + '/' + app.icons[app.icons.length - 1].src);
-    }
-  }
 }
