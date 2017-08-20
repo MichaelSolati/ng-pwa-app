@@ -13,10 +13,6 @@ const routes: Routes = [
     loadChildren: 'app/pwa/pwa.module#PWAModule'
   },
   {
-    path: 'loading',
-    loadChildren: 'app/loading/loading.module#LoadingModule'
-  },
-  {
     path: '**',
     redirectTo: '/'
   }
