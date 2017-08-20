@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormControl, FormArray, Validators } from '@ang
 import { Router } from '@angular/router';
 import { MdSnackBar } from '@angular/material';
 
-import { SubmitService } from '../../shared/services/submit.service';
+import { SubmitService } from '../../core/services/submit.service';
 
 @Component({
   moduleId: module.id,

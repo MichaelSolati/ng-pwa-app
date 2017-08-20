@@ -4,7 +4,7 @@ import { MaterialModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
-import { routing } from './pwa-routing.module';
+import { PWARoutingModule } from './pwa-routing.module';
 
 import { SubmitComponent } from './submit/submit.component';
 import { ViewComponent } from './view/view.component';
@@ -15,7 +15,7 @@ import { ViewComponent } from './view/view.component';
     MaterialModule,
     SharedModule,
     ReactiveFormsModule,
-    routing
+    PWARoutingModule
   ],
   declarations: [
     SubmitComponent,

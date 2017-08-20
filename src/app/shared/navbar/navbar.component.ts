@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { MdSidenav, MdSnackBar } from '@angular/material';
 declare var window: any;
 
-import { UserService } from '../services/user.service';
+import { UserService } from '../../core/services/user.service';
 
 @Component({
   moduleId: module.id,

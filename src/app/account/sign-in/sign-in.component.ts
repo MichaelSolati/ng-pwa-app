@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MdSnackBar } from '@angular/material';
 
-import { UserService } from '../../shared/services/user.service';
+import { UserService } from '../../core/services/user.service';
 
 @Component({
   moduleId: module.id,

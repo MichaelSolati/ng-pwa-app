@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { PWAService } from '../shared/services/pwa.service';
+import { PWAService } from '../core/services/pwa.service';
 
 @Component({
   moduleId: module.id,

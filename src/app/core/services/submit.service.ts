@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import * as firebase from 'firebase';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -11,17 +11,16 @@ import { environment } from '../../../environments/environment'
 @Injectable()
 export class SubmitService {
 
-  constructor(private _http: Http) { }
+  constructor(private _fbDB: AngularFireDatabase, private _http: Http) { }
 
   public create(pwa: any, callback?: any): void {
-    firebase.database()
-      .ref('apps/' + pwa.id)
+    this._fbDB.object('/apps/' + pwa.id)
       .set(pwa)
       .then((success: any) => {
-        (callback) ? callback(null, pwa) : null;
+        if (callback) callback(null, pwa);
       })
       .catch((error: any) => {
-        (callback) ? callback(error, null) : null;
+        if (callback) callback(error, null);
       });
   }
 

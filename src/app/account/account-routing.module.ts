@@ -1,8 +1,8 @@
-import { ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SignedInGuard } from '../shared/guards/signed-in.guard';
-import { SignedOutGuard } from '../shared/guards/signed-out.guard';
+import { SignedInGuard } from '../core/guards/signed-in.guard';
+import { SignedOutGuard } from '../core/guards/signed-out.guard';
 
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -24,4 +24,8 @@ const routes: Routes = [
   }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(routes);
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class AccountRoutingModule { }

@@ -3,21 +3,19 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 
 import { SharedModule } from '../shared/shared.module';
-import { AccountRoutingModule } from './account-routing.module';
+import { LoadingRoutingModule } from './loading-routing.module';
 
-import { SignInComponent } from './sign-in/sign-in.component';
-import { ProfileComponent } from './profile/profile.component';
+import { LoadingComponent } from './loading.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
     SharedModule,
-    AccountRoutingModule
+    LoadingRoutingModule
   ],
   declarations: [
-    SignInComponent,
-    ProfileComponent
+    LoadingComponent
   ]
 })
-export class AccountModule { }
+export class LoadingModule { }
